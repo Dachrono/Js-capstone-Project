@@ -1,0 +1,299 @@
+@import url('https://fonts.cdnfonts.com/css/pocket-monk');
+$desire: #ef3f4a;
+$flashWhite: #eef4f4;
+$lotion: #fbfbfb;
+$milk: #fffff7;
+$eerieBlack: #1d1d1b;
+$phillippine: #feca06;
+$ceruleanBlue: #265abe;
+$pocketMock: 'Pocket Monk', sans-serif;
+
+/* Global */
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 1.8rem;
+  background-color: $flashWhite;
+  font-family: $pocketMock;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: $flashWhite;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* Utility */
+.container {
+  max-width: 144rem;
+  width: 90%;
+  margin: 0 auto;
+  padding: 2rem 0;
+}
+
+.p-fix {
+  position: fixed;
+}
+
+.hidden {
+  display: none;
+}
+
+.flex {
+  display: flex;
+}
+
+.grid {
+  display: grid;
+}
+
+.blur {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(5px);
+  z-index: 1;
+}
+
+/* header */
+.header {
+  border-bottom: 0.3rem solid $eerieBlack;
+  background-color: $desire;
+  width: 100%;
+
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    img {
+      content: url(./assets/pokemon_logo.png);
+    }
+
+    .navBar {
+      display: flex;
+      list-style: none;
+      align-items: center;
+
+      li {
+        a {
+          display: flex;
+          padding-left: 10rem;
+          transition: font-size 0.6s, padding-left 0.6s;
+        }
+
+        a:hover {
+          font-size: 2.4rem;
+          padding-left: 8rem;
+          color: $phillippine;
+          -webkit-text-stroke-width: 0.1rem;
+          -webkit-text-stroke-color: $ceruleanBlue;
+        }
+      }
+    }
+  }
+}
+
+/* Main */
+.main {
+  background-image: url(./assets/bg_pokeballs.jpg);
+  background-repeat: repeat;
+  background-size: 28rem;
+
+  .container {
+    padding: 8.8rem 0 6.4rem 0;
+    grid: repeat(7, 1fr) / repeat(3, 1fr);
+
+    .card {
+      padding-bottom: 1rem;
+      margin: 1rem 20%;
+      border: solid $eerieBlack 0.2rem;
+      border-radius: 1rem;
+      background-color: $lotion;
+
+      .pokeImg {
+        justify-content: center;
+        align-items: center;
+        height: 11.7rem;
+        background-color: rgb(29, 29, 27, 0.2);
+        border: solid $eerieBlack 0.2rem;
+        margin: 1rem;
+        border-radius: 1rem;
+      }
+
+      .descCont {
+        justify-content: space-between;
+        padding: 0 1rem;
+        color: $eerieBlack;
+        letter-spacing: 0.3rem;
+
+        .likeCont {
+          text-align: center;
+
+          img {
+            cursor: pointer;
+          }
+        }
+      }
+
+      .buttonCont {
+        padding: 0 1rem;
+
+        button {
+          width: 100%;
+          padding: 1rem 0;
+          font-size: 1.8rem;
+          font-family: $pocketMock;
+          background: none;
+          background-color: $desire;
+          border-radius: 1rem;
+          color: $flashWhite;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
+
+/* Footer */
+.footer {
+  background-color: $desire;
+  width: 100%;
+  bottom: 0;
+  color: $flashWhite;
+  border-top: 0.3rem solid $eerieBlack;
+}
+
+/* Pop Up */
+.cardPop {
+  overflow-y: scroll;
+  border: solid $eerieBlack 0.4rem;
+  border-radius: 1rem;
+  text-align: center;
+  position: fixed;
+  top: 14%;
+  bottom: 10%;
+  left: 20%;
+  right: 20%;
+  color: $flashWhite;
+  z-index: 2;
+  animation-name: example;
+  animation-duration: 0.6s;
+
+  @keyframes example {
+    0% { bottom: 86%; }
+    100% { bottom: 10%; }
+  }
+
+  .pokeInfo {
+    background-color: $desire;
+    padding: 0 1rem;
+
+    .close {
+      justify-content: end;
+
+      .closeBtn {
+        all: unset;
+        font-size: 2.4rem;
+        cursor: pointer;
+      }
+    }
+
+    .popupPokeImg {
+      justify-content: center;
+      height: 15rem;
+      background-color: rgba(238, 244, 244, 0.2);
+      margin: 1rem 0;
+      padding: 1rem 0;
+      border-radius: 1rem;
+    }
+
+    .nameCont {
+      h2 {
+        letter-spacing: 0.3rem;
+        padding-bottom: 1rem;
+      }
+    }
+
+    .description {
+      padding-bottom: 2rem;
+      grid: repeat(2, 1fr) / repeat(2, 1fr);
+      gap: 1rem;
+      text-align: start;
+    }
+  }
+
+  .pokeComments {
+    background-color: $flashWhite;
+
+    .titleComment {
+      padding: 1rem;
+      border-top: 0.4rem solid $eerieBlack;
+      color: $eerieBlack;
+    }
+
+    .comments {
+      padding: 1rem;
+      border-bottom: 0.4rem solid $eerieBlack;
+      color: $eerieBlack;
+    }
+  }
+
+  .pokeForm {
+    background-color: $desire;
+
+    .form {
+      text-align: start;
+      padding: 2rem;
+
+      h3 {
+        text-align: center;
+        letter-spacing: 0.3rem;
+      }
+
+      .user {
+        margin: 1rem;
+        padding: 0.6rem;
+        border-radius: 1rem;
+      }
+
+      textarea {
+        width: 90%;
+        height: 6rem;
+        margin: 1rem;
+        padding: 0.6rem;
+        border-radius: 1rem;
+      }
+
+      .submit {
+        margin: 1rem;
+        background: none;
+        background-color: $eerieBlack;
+        font-family: $pocketMock;
+        border-radius: 0.6rem;
+        padding: 0.4rem 1rem;
+        color: $flashWhite;
+        cursor: pointer;
+      }
+    }
+  }
+}
